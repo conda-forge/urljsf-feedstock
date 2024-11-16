@@ -1,4 +1,4 @@
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 {% set python_min = python_min | default("3.9") %}
 {% set PYTHON = PYTHON | default("$PYTHON") %}
 
@@ -7,18 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.org/packages/source/u/urljsf/urljsf-{{ version }}.tar.gz
-    sha256: fd658994518684bad3ed5a60e9e964efdcbc284e356035c6bb6e5a3a59659778
-  - folder: src
-    url: https://github.com/deathbeds/urljsf/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 953be767fd036e138b0aa70459fd49e32ffc4bf26172580f7256df6378f194b4
+  url: https://pypi.org/packages/source/u/urljsf/urljsf-{{ version }}.tar.gz
+  sha256: ddbc45a46e25b307c95cb2b4afd7f285bb7ae217edc9aa7d9d43b410adfa75a5
 
 build:
   number: 0
   noarch: python
   script:
-    - cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   entry_points:
     - urljsf = urljsf.cli:main
 
@@ -82,6 +78,24 @@ outputs:
         - urljsf --version
         - urljsf --help
 
+  - name: urljsf-with-mkdocs
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage("urljsf", max_pin="x.x.x") }}
+        - mkdocs >=1.5.0
+        - pymdown-extensions >=10.11.0
+    test:
+      requires:
+        - pip
+      imports:
+        - urljsf
+      commands:
+        - pip check
+        - urljsf --version
+        - urljsf --help
+
   - name: urljsf-with-all
     build:
       noarch: generic
@@ -90,16 +104,16 @@ outputs:
         - {{ pin_subpackage("urljsf", max_pin="x.x.x") }}
         - {{ pin_subpackage("urljsf-with-yaml", max_pin="x.x.x") }}
         - {{ pin_subpackage("urljsf-with-sphinx", max_pin="x.x.x") }}
+        - {{ pin_subpackage("urljsf-with-mkdocs", max_pin="x.x.x") }}
     test:
       source_files:
-        - src/tests
-        - src/pyproject.toml
+        - pyproject.toml
+        - tests
       requires:
         - coverage
         - pip
-        - pytest-cov
-        - pytest-html
         - pytest-console-scripts
+        - pytest-cov
         - tomli-w
       imports:
         - urljsf
@@ -107,7 +121,6 @@ outputs:
         - pip check
         - urljsf --version
         - urljsf --help
-        - cd src
         - pytest -vv --color=yes --tb=long --cov=urljsf --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=97
 
 about:
@@ -115,8 +128,8 @@ about:
   summary: Build declarative, interactive HTML forms with JSON Schema
   license: BSD-3-Clause
   license_file:
-    - dist/LICENSE
-    - dist/src/urljsf/_static/urljsf/third-party-licenses.json
+    - LICENSE
+    - src/urljsf/_static/urljsf/third-party-licenses.json
   doc_url: https://urljsf.rtfd.org
 
 extra:
