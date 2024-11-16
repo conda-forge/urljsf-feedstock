@@ -110,10 +110,10 @@ outputs:
         - pyproject.toml
         - tests
       requires:
-        - coverage
         - pip
         - pytest-console-scripts
         - pytest-cov
+        - pytest-html
         - tomli-w
       imports:
         - urljsf
