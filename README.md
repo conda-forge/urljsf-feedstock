@@ -31,6 +31,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-urljsf-green.svg)](https://anaconda.org/conda-forge/urljsf) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/urljsf.svg)](https://anaconda.org/conda-forge/urljsf) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/urljsf.svg)](https://anaconda.org/conda-forge/urljsf) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/urljsf.svg)](https://anaconda.org/conda-forge/urljsf) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-urljsf--with--all-green.svg)](https://anaconda.org/conda-forge/urljsf-with-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/urljsf-with-all.svg)](https://anaconda.org/conda-forge/urljsf-with-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/urljsf-with-all.svg)](https://anaconda.org/conda-forge/urljsf-with-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/urljsf-with-all.svg)](https://anaconda.org/conda-forge/urljsf-with-all) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-urljsf--with--mkdocs-green.svg)](https://anaconda.org/conda-forge/urljsf-with-mkdocs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/urljsf-with-mkdocs.svg)](https://anaconda.org/conda-forge/urljsf-with-mkdocs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/urljsf-with-mkdocs.svg)](https://anaconda.org/conda-forge/urljsf-with-mkdocs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/urljsf-with-mkdocs.svg)](https://anaconda.org/conda-forge/urljsf-with-mkdocs) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-urljsf--with--sphinx-green.svg)](https://anaconda.org/conda-forge/urljsf-with-sphinx) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/urljsf-with-sphinx.svg)](https://anaconda.org/conda-forge/urljsf-with-sphinx) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/urljsf-with-sphinx.svg)](https://anaconda.org/conda-forge/urljsf-with-sphinx) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/urljsf-with-sphinx.svg)](https://anaconda.org/conda-forge/urljsf-with-sphinx) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-urljsf--with--yaml-green.svg)](https://anaconda.org/conda-forge/urljsf-with-yaml) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/urljsf-with-yaml.svg)](https://anaconda.org/conda-forge/urljsf-with-yaml) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/urljsf-with-yaml.svg)](https://anaconda.org/conda-forge/urljsf-with-yaml) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/urljsf-with-yaml.svg)](https://anaconda.org/conda-forge/urljsf-with-yaml) |
 
@@ -44,16 +45,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `urljsf, urljsf-with-all, urljsf-with-sphinx, urljsf-with-yaml` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `urljsf, urljsf-with-all, urljsf-with-mkdocs, urljsf-with-sphinx, urljsf-with-yaml` can be installed with `conda`:
 
 ```
-conda install urljsf urljsf-with-all urljsf-with-sphinx urljsf-with-yaml
+conda install urljsf urljsf-with-all urljsf-with-mkdocs urljsf-with-sphinx urljsf-with-yaml
 ```
 
 or with `mamba`:
 
 ```
-mamba install urljsf urljsf-with-all urljsf-with-sphinx urljsf-with-yaml
+mamba install urljsf urljsf-with-all urljsf-with-mkdocs urljsf-with-sphinx urljsf-with-yaml
 ```
 
 It is possible to list all of the versions of `urljsf` available on your platform with `conda`:
