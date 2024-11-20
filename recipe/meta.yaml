@@ -1,4 +1,4 @@
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 {% set python_min = python_min | default("3.9") %}
 {% set PYTHON = PYTHON | default("$PYTHON") %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/u/urljsf/urljsf-{{ version }}.tar.gz
-  sha256: ddbc45a46e25b307c95cb2b4afd7f285bb7ae217edc9aa7d9d43b410adfa75a5
+  sha256: 9b5aadd7cc8dcbe5ec6db5ba8c2294f1b50c2c76471613b41ca9e21ea275bb7a
 
 build:
   number: 0
